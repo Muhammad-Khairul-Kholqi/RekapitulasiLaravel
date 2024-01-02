@@ -79,7 +79,7 @@
                         </td>
                         <td>
                             @if ($group->count() >= 3)
-                                <a href="{{ route('pembimbing.pdf', $group->first()->student_id) }}" class="btn btn-primary"><i class="bi bi-printer"></i></a>
+                                <a href="{{ route('pembimbing.expPdf', $group->first()->student_id) }}" class="btn btn-primary"><i class="bi bi-printer"></i></a>
                             @endif
                         </td>
                     </tr>

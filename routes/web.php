@@ -103,5 +103,5 @@ Route::middleware('Ispembimbing')->group(function () {
     Route::get('/export-excel', [LatesController::class, 'telatExcel'])->name('pembimbing.export-excel');
     Route::get('/search-telat', [LatesController::class, 'searchTelat'])->name('pembimbing.searchtelat');
     Route::get('/show/{student_id}', [LatesController::class, 'showTelat'])->name('pembimbing.showtelat');
-    Route::get('/export-pdf/{student_id}', [LatesController::class, 'exportPsPdf'])->name('pembimbing.pdf');
+    Route::get('/export-pdf/{student_id}', [LatesController::class, 'exportPsPdf'])->name('pembimbing.expPdf');
 }); 

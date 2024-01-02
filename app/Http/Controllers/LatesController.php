@@ -157,6 +157,8 @@ class LatesController extends Controller
             ->get();
         $groupTelat = $latesPs->groupBy('students.nis');
 
+        
+
         return view('pembimbing.telat', compact('latesPs', 'groupTelat'));
     }
 
@@ -206,7 +208,7 @@ class LatesController extends Controller
             $groupLates = $lates->groupBy('students.nis');
             $total = $groupLates->get($student->nis)->count();
 
-            $pdf = PDF::loadView('admin.lates.pdf', compact('student', 'total'));
+            $pdf = PDF::loadView('pembimbing.expPdf', compact('student', 'total'));
             $pdfFileName = 'terlambat_' . $student_id . '.pdf';
 
             // Mendownload file PDF langsung
