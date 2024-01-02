@@ -72,7 +72,7 @@
         </a>
         @endif
 
-        {{-- @if(Auth::User()->role == "admin") --}}
+        @if(Auth::User()->role == "admin")
         <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white" onclick="dropdown()">
             <i class="bi bi-folder2-open text-black"></i>
             <div class="flex justify-between w-full items-center">
@@ -82,31 +82,32 @@
                 </span>
             </div>
         </div>
-        {{-- @endif  --}}
         <div class="text-left text-sm mt-2 w-4/5 mx-auto text-black" id="submenu">
-            @if(Auth::User()->role == "admin")
             <a href="{{ route('rombel.index') }}">
                 <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1 hover:text-white">Data Rombel</h1>
             </a>
             <a href="{{ route('rayon.index') }}">
                 <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1 hover:text-white">Data Rayon</h1>
             </a>
-            @endif
-            @if(Auth::user()->role == "admin")
             <a href="{{ route('students.index') }}">
                 <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1 hover:text-white">Data Siswa</h1>
             </a>
-            @else
-            <a href="{{ route('pembimbing.siswa') }}">
-                <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1 hover:text-white">Data Siswa</h1>
-            </a>
-            @endif
-            @if(Auth::User()->role == "admin")
             <a href="{{ route('user.index') }}">
                 <h1 class="cursor-pointer p-2 hover:bg-blue-700 rounded-md mt-1 hover:text-white">Data User</h1>
             </a>
-            @endif 
         </div>
+        @else 
+            <a href="{{ route('pembimbing.siswa') }}">
+            <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                <i class="bi bi-people text-black"></i>
+                <span class="text-[15px] ml-4 text-black font-bold">Data Siswa</span>
+            </div>
+            </a>
+        @endif
+
+
+
+
         <hr class="my-2 text-gray-600">
         <a href="{{ route("logout") }}">
         <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
